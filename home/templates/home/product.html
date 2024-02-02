@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+<article>
+  <h1>{{ page.title }}</h1>
+  <div class="product-image">
+    {% if page.image %}
+      {% image page.image fill-800x600 %}
+    {% endif %}
+  </div>
+  <div class="product-description">
+    {{ page.description }}
+  </div>
+  <div class="product-price">
+    Price: ${{ page.price }}
+  </div>
+  <button class="snipcart-add-item"
+          data-item-id="{{ page.snipcart_details.id }}"
+          data-item-price="{{ page.snipcart_details.price }}"
+          data-item-url="{{ page.snipcart_details.url }}"
+          data-item-description="{{ page.snipcart_details.description }}"
+          data-item-image="{{ page.snipcart_details.image }}"
+          data-item-name="{{ page.snipcart_details.name }}">
+    Add to cart
+  </button>
+</article>
+{% endblock %}
