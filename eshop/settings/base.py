@@ -165,8 +165,17 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "55ed-184-161-71-148.ngrok-free.app"
+WAGTAILADMIN_BASE_URL = "43fc-37-169-14-172.ngrok-free.app"
+# TODO: Change this to your domain
+
+# add custom login template
+WAGTAIL_FRONTEND_LOGIN_TEMPLATE = 'registration/login.html'
+
+LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 

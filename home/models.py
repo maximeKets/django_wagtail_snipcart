@@ -6,10 +6,14 @@ from wagtail.models import Page
 
 class HomePage(Page):
     template = "home/home_page.html"
+    max_count = 1
+    subpage_types = [
+        "home.Product",
+    ]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
-        context['products'] = Product.objects.live().public().descendant_of(self)
+        context['products'] = Product.objects.live().descendant_of(self)
         return context
 
 
